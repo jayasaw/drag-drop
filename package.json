@@ -1,0 +1,16 @@
+{
+  "name": "drgdrop",
+  "version": "1.0.0",
+  "description": "drap & drop Poc ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "lite-server"
+  },
+  "author": "jaya",
+  "license": "ISC",
+  "dependencies": {
+    "angular-files-drop": "^1.0.0",
+    "lite-server": "^2.3.0"
+  }
+}
