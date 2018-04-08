@@ -17,28 +17,17 @@ angular.module('fileUploder', ['ngFileUpload'])
         $scope.$watch('files', function () {
             $scope.upload($scope.files);
         });
-        for (var i = 0; i < $scope.files.length; i++) {
-            var file = $scope.files[i];
-            console.log($scope.files[i])
-            if (files.type.indexOf("image") !== -1) {
-                // previewFile(file);								
-            } else {
-                alert(file.name + " is not supported");
-            }
-        }
 
-        $scope.$watch('file', function () {
-            if ($scope.file != null) {
-                $scope.$on("fileSelected", function (event, args) {
-                    $scope.$apply(function () {
-                        $scope.files.push($scope.file);
-                    });
-                    // $scope.files.push($scope.file);
+        // $scope.$watch('file', function () {
+        //     if ($scope.file != null) {
+              
+        //             $scope.$apply(function () {
+        //                 $scope.files.push($scope.file);
+        //             });
 
-                });
-            }
+        //     }
 
-        });
+        // });
 
 
         $scope.upload = function (files) {
@@ -50,17 +39,12 @@ angular.module('fileUploder', ['ngFileUpload'])
                         console.log(vm.fileHistroy);
                         var reader = new FileReader();
                         reader.onload = function (e) {
-                            $scope.$on("fileSelected", function (event, args) {
-                                $scope.$apply(function () {
-                                    $scope.files.push($scope.file);
-                                });
-                                // $scope.files.push($scope.file);
-
-                            });
                             file.src = e.target.result;
                         }
 
                         reader.readAsDataURL(file);
+
+                        // Upload service is from ngFileUpload
                         Upload.upload({
                             // url: 'https://angular-file-upload-cors-srv.appspot.com/upload',
                             url: vm.url,
